@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
@@ -9,11 +9,36 @@ import Logo from '../ui/Logo';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showLauncherTransition, setShowLauncherTransition] = useState(false);
   const { user = null, logout } = useAuth();
   const { items: cartItems = [] } = useCart();
   const { isDarkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Detect if user came from launcher
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const fromLauncher = urlParams.get('fromLauncher');
+    const launcherTransition = sessionStorage.getItem('launcherTransition');
+    const fromLauncherSession = sessionStorage.getItem('fromLauncher');
+    
+    if (fromLauncher === 'true' || launcherTransition === 'true' || fromLauncherSession === 'true') {
+      setShowLauncherTransition(true);
+      // Clean up the URL and sessionStorage
+      if (fromLauncher) {
+        const newUrl = location.pathname;
+        window.history.replaceState({}, '', newUrl);
+      }
+      sessionStorage.removeItem('launcherTransition');
+      sessionStorage.removeItem('fromLauncher');
+      
+      // Reset after longer animation to match launcher timing
+      setTimeout(() => {
+        setShowLauncherTransition(false);
+      }, 4000);
+    }
+  }, [location]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -36,7 +61,7 @@ const Navbar = () => {
   };
 
   const navigation = [
-    { name: 'Home', href: '/' },
+    { name: 'Home', href: '/home' },
     { 
       name: 'Products', 
       href: '/products',
@@ -56,19 +81,29 @@ const Navbar = () => {
 
   // Helper function to check if a navigation item is active
   const isActiveTab = (href) => {
-    if (href === '/') {
-      return location.pathname === '/';
+    if (href === '/home') {
+      return location.pathname === '/home' || location.pathname === '/';
     }
     return location.pathname.startsWith(href);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors duration-300">
+    <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b shadow-sm transition-all duration-300 ${
+      showLauncherTransition
+        ? isDarkMode
+          ? 'bg-gray-800/90 border-purple-500/30 shadow-purple-500/20'
+          : 'bg-white/90 border-blue-500/30 shadow-blue-500/20'
+        : 'bg-white/95 dark:bg-gray-800/95 border-gray-200 dark:border-gray-700'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center mr-6">
-            <Logo size="medium" />
+          {/* Logo with launcher transition and permanent illumination */}
+          <Link to="/home" className="flex items-center mr-6">
+            <Logo 
+              size="medium" 
+              showLauncherTransition={showLauncherTransition}
+              keepIlluminated={true}
+            />
           </Link>
 
           {/* Desktop Navigation */}
