@@ -793,7 +793,9 @@ const Products = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap smooth-transition hover-lift btn-active transform hover:scale-105 ${
                     selectedCategory === category
-                      ? 'bg-indigo-600 text-white hover-glow'
+                      ? isDarkMode
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover-glow'
+                        : 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover-glow'
                       : isDarkMode
                         ? 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                         : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -889,11 +891,11 @@ const Products = () => {
                     className={`px-3 py-1 rounded-md text-sm transition-all duration-200 hover-lift btn-active transform hover:scale-105 ${
                       isInCart(product.id)
                         ? isDarkMode
-                          ? 'bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 hover:from-emerald-600 hover:via-teal-600 hover:to-cyan-700 text-white'
+                          ? 'bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white'
                           : 'bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-600 hover:to-teal-500 text-white'
                         : isDarkMode
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white'
-                          : 'bg-gradient-to-r from-blue-500 to-sky-400 hover:from-blue-600 hover:to-sky-500 text-white'
+                          ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+                          : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white'
                     }`}
                   >
                     {isInCart(product.id) ? 'Added to Cart ✓' : 'Add to Cart'}

@@ -188,17 +188,19 @@ const Home = () => {
       {/* Hero Section */}
       <section className={`relative py-20 lg:py-32 transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 text-white'
+          ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white'
           : 'bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 text-white'
       }`}>
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-medium mb-6">
             Welcome to <span className={`${
-              isDarkMode ? 'text-cyan-200' : 'text-cyan-200'
+              isDarkMode ? 'text-purple-300' : 'text-cyan-200'
             }`}>OpiumVerse</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto">
+          <p className={`text-xl md:text-2xl mb-8 max-w-3xl mx-auto ${
+            isDarkMode ? 'text-gray-200' : 'text-gray-100'
+          }`}>
             Discover premium products with royal quality and sophisticated design
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -531,7 +533,7 @@ const Home = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/register">
+            <Link to="/auth">
               <button className={`px-8 py-4 rounded-lg text-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg ${
                 isDarkMode
                   ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700'

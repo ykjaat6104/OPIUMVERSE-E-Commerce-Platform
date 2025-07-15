@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -14,15 +14,13 @@ import ProductWishlist from './pages/ProductWishlist';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import CheckoutSuccess from './pages/CheckoutSuccess';
-import Login from './pages/Login';
-import SellerLogin from './pages/SellerLogin';
-import Register from './pages/Register';
-import SellerRegister from './pages/SellerRegister';
 import ForgotPassword from './pages/ForgotPassword';
 import SellerForgotPassword from './pages/SellerForgotPassword';
 import Profile from './pages/Profile';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import CustomerSupport from './pages/CustomerSupport';
+import AuthPage from './pages/AuthPage';
 
 function App() {
   return (
@@ -46,15 +44,20 @@ function App() {
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/checkout" element={<Checkout />} />
                   <Route path="/checkout/success" element={<CheckoutSuccess />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/seller-login" element={<SellerLogin />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/seller-register" element={<SellerRegister />} />
+                  
+                  {/* Auth routes - redirect old routes to unified auth page */}
+                  <Route path="/auth" element={<AuthPage />} />
+                  <Route path="/login" element={<Navigate to="/auth" replace />} />
+                  <Route path="/register" element={<Navigate to="/auth" replace />} />
+                  <Route path="/seller-login" element={<Navigate to="/auth" replace />} />
+                  <Route path="/seller-register" element={<Navigate to="/auth" replace />} />
+                  
                   <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/seller-forgot-password" element={<SellerForgotPassword />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/support" element={<CustomerSupport />} />
                 </Routes>
               </MainLayout>
             } />

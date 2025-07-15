@@ -313,9 +313,11 @@ const ProductWishlist = () => {
                           <button
                             onClick={() => addToCart(item.id)}
                             disabled={!item.inStock}
-                            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                            className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
                               item.inStock
-                                ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                                ? isDarkMode
+                                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+                                  : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white'
                                 : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                             }`}
                           >
@@ -353,7 +355,11 @@ const ProductWishlist = () => {
             </p>
             <button
               onClick={() => navigate('/products')}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+              className={`px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
+                isDarkMode
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white'
+                  : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white'
+              }`}
             >
               Start Shopping
             </button>

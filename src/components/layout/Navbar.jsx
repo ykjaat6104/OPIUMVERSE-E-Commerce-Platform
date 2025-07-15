@@ -51,6 +51,7 @@ const Navbar = () => {
     },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Support', href: '/support' },
   ];
 
   // Helper function to check if a navigation item is active
@@ -167,9 +168,9 @@ const Navbar = () => {
             ) : (
               <div className="flex items-center space-x-2">
                 <Link
-                  to="/login"
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg transform ${
-                    location.pathname === '/login'
+                  to="/auth"
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg transform ${
+                    location.pathname === '/auth'
                       ? isDarkMode
                         ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg scale-110 font-semibold'
                         : 'text-white bg-gradient-to-r from-blue-600 to-sky-400 shadow-lg scale-110 font-semibold'
@@ -178,35 +179,12 @@ const Navbar = () => {
                         : 'text-gray-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-sky-50 hover:scale-105 hover:shadow-md'
                   }`}
                 >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 rounded-lg transform ${
-                    location.pathname === '/register'
-                      ? isDarkMode
-                        ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg scale-110 font-semibold'
-                        : 'text-white bg-gradient-to-r from-blue-600 to-sky-400 shadow-lg scale-110 font-semibold'
-                      : isDarkMode
-                        ? 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-600/20 hover:scale-105 hover:shadow-md'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-sky-50 hover:scale-105 hover:shadow-md'
-                  }`}
-                >
-                  Sign up
-                </Link>
-                <Link
-                  to="/seller-login"
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 transform ${
-                    location.pathname === '/seller-login' || location.pathname === '/seller-register'
-                      ? isDarkMode
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg scale-110 font-semibold'
-                        : 'bg-gradient-to-r from-blue-500 to-sky-300 text-white shadow-lg scale-110 font-semibold'
-                      : isDarkMode
-                        ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-105 hover:shadow-lg'
-                        : 'bg-gradient-to-r from-blue-400 to-sky-200 text-white hover:from-blue-500 hover:to-sky-300 hover:scale-105 hover:shadow-lg'
-                  }`}
-                >
-                  Seller
+                  <div className="flex items-center space-x-2">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <span>Sign In / Up</span>
+                  </div>
                 </Link>
               </div>
             )}
@@ -239,15 +217,16 @@ const Navbar = () => {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href}                    className={`px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg transform ${
-                      isActiveTab(item.href)
-                        ? isDarkMode
-                          ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg scale-105 font-semibold'
-                          : 'text-white bg-gradient-to-r from-blue-600 to-sky-400 shadow-lg scale-105 font-semibold'
-                        : isDarkMode
-                          ? 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-600/20 hover:scale-102'
-                          : 'text-gray-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-sky-50 hover:scale-102'
-                    }`}
+                  to={item.href}
+                  className={`px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg transform ${
+                    isActiveTab(item.href)
+                      ? isDarkMode
+                        ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg scale-105 font-semibold'
+                        : 'text-white bg-gradient-to-r from-blue-600 to-sky-400 shadow-lg scale-105 font-semibold'
+                      : isDarkMode
+                        ? 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-600/20 hover:scale-102'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-sky-50 hover:scale-102'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -258,9 +237,9 @@ const Navbar = () => {
               {!user && (
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-700 space-y-3">
                   <Link
-                    to="/login"
+                    to="/auth"
                     className={`block px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg transform ${
-                      location.pathname === '/login'
+                      location.pathname === '/auth'
                         ? isDarkMode
                           ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg scale-105 font-semibold'
                           : 'text-white bg-gradient-to-r from-blue-600 to-sky-400 shadow-lg scale-105 font-semibold'
@@ -270,37 +249,12 @@ const Navbar = () => {
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Login
-                  </Link>
-                  <Link
-                    to="/register"
-                    className={`block px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg transform ${
-                      location.pathname === '/register'
-                        ? isDarkMode
-                          ? 'text-white bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg scale-105 font-semibold'
-                          : 'text-white bg-gradient-to-r from-blue-600 to-sky-400 shadow-lg scale-105 font-semibold'
-                        : isDarkMode
-                          ? 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-600/20'
-                          : 'text-gray-700 hover:text-blue-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-sky-50'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sign up
-                  </Link>
-                  <Link
-                    to="/seller-login"
-                    className={`block px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 transform ${
-                      location.pathname === '/seller-login' || location.pathname === '/seller-register'
-                        ? isDarkMode
-                          ? 'bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg scale-105 font-semibold'
-                          : 'bg-gradient-to-r from-blue-500 to-sky-300 text-white shadow-lg scale-105 font-semibold'
-                        : isDarkMode
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 hover:scale-102'
-                          : 'bg-gradient-to-r from-blue-400 to-sky-200 text-white hover:from-blue-500 hover:to-sky-300 hover:scale-102'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Seller Portal
+                    <div className="flex items-center space-x-2">
+                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span>Sign In / Register</span>
+                    </div>
                   </Link>
                 </div>
               )}
