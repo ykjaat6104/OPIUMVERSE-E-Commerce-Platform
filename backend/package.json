@@ -1,0 +1,21 @@
+{
+  "name": "opiumverse-backend",
+  "version": "1.0.0",
+  "description": "PHP backend for OpiumVerse e-commerce platform",
+  "scripts": {
+    "serve": "php -S localhost:8000 router.php",
+    "start": "php -S localhost:8000 router.php"
+  },
+  "keywords": [
+    "php",
+    "ecommerce",
+    "api",
+    "backend",
+    "mysql"
+  ],
+  "author": "OpiumVerse Team",
+  "license": "MIT",
+  "engines": {
+    "php": ">=8.0"
+  }
+}
