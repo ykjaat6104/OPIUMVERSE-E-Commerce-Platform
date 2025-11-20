@@ -3,17 +3,6 @@
 A sophisticated, cinematic e-commerce platform built with React and Vite, featuring an immersive launcher experience, professional design system, and seamless shopping functionality.
 
 
-## 🌐 Preview Images
-<img width="1920" height="1080" alt="Screenshot 2025-09-04 225103" src="https://github.com/user-attachments/assets/ffa7e2c5-2dfd-4464-acbb-e59e92cd9309" />
-
-
-<img width="1920" height="1080" alt="Screenshot (44)" src="https://github.com/user-attachments/assets/df69f63d-7331-49e0-b266-3df052771f0e" />
-
-
-## 🚀 Opium AI Bot Support
-<img width="1920" height="1080" alt="Screenshot (46)" src="https://github.com/user-attachments/assets/4c46d234-3287-4cc2-a5dc-8b302c903cad" />
-
-
 ## ✨ Key Features
 
 ### 🎬 **Cinematic Launcher Experience**
@@ -48,6 +37,11 @@ A sophisticated, cinematic e-commerce platform built with React and Vite, featur
 - **Performance**: Code splitting and lazy loading
 - **SEO Ready**: Proper meta tags and semantic HTML
 
+### 🧠 **OpiumBot AI Support**
+<img width="1920" height="1080" alt="Screenshot (46)" src="https://github.com/user-attachments/assets/4c46d234-3287-4cc2-a5dc-8b302c903cad" />
+
+
+
 ## 🏗️ Architecture
 
 ```
@@ -78,7 +72,14 @@ src/
 └── assets/                     # Optimized static resources
 ```
 
-## 🎯 User Experience Flow
+## 🌐 Preview Images
+<img width="1920" height="1080" alt="Screenshot 2025-09-04 225103" src="https://github.com/user-attachments/assets/ffa7e2c5-2dfd-4464-acbb-e59e92cd9309" />
+
+
+<img width="1920" height="1080" alt="Screenshot (44)" src="https://github.com/user-attachments/assets/df69f63d-7331-49e0-b266-3df052771f0e" />
+
+
+## 🎯 **User Experience Flow**
 
 ### **First Visit / Page Refresh**
 1. **Launcher Screen**: Cinematic 9-second brand introduction
