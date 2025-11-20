@@ -2,6 +2,18 @@
 
 A sophisticated, cinematic e-commerce platform built with React and Vite, featuring an immersive launcher experience, professional design system, and seamless shopping functionality.
 
+
+## 🌐 Preview Images
+<img width="1920" height="1080" alt="Screenshot 2025-09-04 225103" src="https://github.com/user-attachments/assets/ffa7e2c5-2dfd-4464-acbb-e59e92cd9309" />
+
+
+<img width="1920" height="1080" alt="Screenshot (44)" src="https://github.com/user-attachments/assets/df69f63d-7331-49e0-b266-3df052771f0e" />
+
+
+## 🚀 Opium AI Bot Support
+<img width="1920" height="1080" alt="Screenshot (46)" src="https://github.com/user-attachments/assets/4c46d234-3287-4cc2-a5dc-8b302c903cad" />
+
+
 ## ✨ Key Features
 
 ### 🎬 **Cinematic Launcher Experience**
@@ -143,22 +155,7 @@ npm run preview
 - **Transitions**: 2.5-3 second smooth easing
 - **Interactions**: Subtle hover effects and scaling
 - **Performance**: Hardware-accelerated transforms
-
-## 🌐 Live Demo Features
-
-**Launcher Experience:**
-- Refresh any page to see the cinematic launcher screen
-- Experience the cloth-pulling transition effect
-- Notice the logo illumination carrying over to navigation
-
-**Shopping Features:**
-- Browse premium product catalog with advanced filtering
-- Add items to cart with real-time updates
-- Compare products side-by-side with detailed specifications
-- Read and navigate customer reviews with star ratings
-- Switch seamlessly between dark/light themes
-- Experience responsive design across all devices
-
+  
 **Performance:**
 - Instant page loads with Vite's optimized bundling
 - Smooth 60fps animations and transitions
